@@ -5,6 +5,7 @@
    :id="emoticons"
    :value="emoticons"
    class="btn-emoticon"
+   :disabled="isDisable"
    @click="vote">
    
    </button>
@@ -17,16 +18,17 @@
 import moment from "moment";
 
 export default {
-  name: "Home",
+  name: "Vote",
   components: { },
   data: function () {
   	return{
-  		emoticons:['very-bad','bad','ok','good','very-good']
+  		emoticons:['very-bad','bad','ok','good','very-good'],isDisable: false
   	}
   },
   methods:{
 
   	vote(e){
+  		this.isDisable=true;
   		var voted = e.target.value;
   		var waktu = moment().format('DD-MM-YYYY hh:mm:ss '); // January 9th 2021, 11:21:23 am
   		var keyStorage = moment().format('DDMMYYYYhhmmss ');

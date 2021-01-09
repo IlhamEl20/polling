@@ -6,11 +6,14 @@
  	</h3>
 
  	<div class="emoticons">
- 		<Vote/>
+ 		<Vote :voteProp="vote"/>
  	</div>
  </section>
 <section class="finish">
-	<h4>Terimakasih atas penilainyan</h4>
+	<transition name="fade">
+
+	<h4 v-if="show">Terimakasih bruh</h4>
+</transition>
 </section>
   </div>
 </template>
@@ -21,9 +24,19 @@ import Vote from "@/components/Vote.vue";
 
 export default {
   name: "Home",
+  data: function(){
+  	return{
+  		show:false
+  	}
+  },
   components: {
   Vote
-  }
+  },
+ methods:{
+ 	vote(){
+ 		this.show=true;
+ 	}
+ } 
 };
 </script>
 <style type="text/css">

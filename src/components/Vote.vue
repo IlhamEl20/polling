@@ -29,8 +29,16 @@ export default {
   	vote(e){
   		var voted = e.target.value;
   		var waktu = moment().format('DD-MM-YYYY hh:mm:ss '); // January 9th 2021, 11:21:23 am
-  		console.log(waktu);
-  		localStorage.setItem('vote',voted);
+  		var keyStorage = moment().format('DDMMYYYYhhmmss ');
+
+  		var data={
+  			vote: voted,
+  			create_at : waktu
+  		}
+  	
+  		var jsonToString = JSON.stringify(data);
+  		
+  		localStorage.setItem(keyStorage,jsonToString);
   	}
   }
 

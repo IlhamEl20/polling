@@ -5,6 +5,7 @@
    :id="emoticons"
    :value="emoticons"
    class="btn-emoticon"
+   :class="{active:emoticons == emoticonsClick}"
    :disabled="isDisable"
    @click="vote">
    
@@ -22,14 +23,16 @@ export default {
   components: { },
   data: function () {
   	return{
-  		emoticons:['very-bad','bad','ok','good','very-good'],isDisable: false
+  		emoticons:['very-bad','bad','ok','good','very-good'],isDisable: false,
+  		emoticonsClick:false
   	}
   },
   methods:{
 
   	vote(e){
-  		this.isDisable=true;
   		var voted = e.target.value;
+  		this.isDisable=true;
+  		this.emoticonsClick=voted;
   		var waktu = moment().format('DD-MM-YYYY hh:mm:ss '); // January 9th 2021, 11:21:23 am
   		var keyStorage = moment().format('DDMMYYYYhhmmss ');
 
@@ -66,7 +69,9 @@ export default {
 	}
 	#very-bad:hover{
 		background-position: 0px -100px;
-	}	#very-bad:active{
+	}
+	#very-bad.active,
+	#very-bad:active{
 		background-position: 0px -200px;
 	}	
 	#bad{
@@ -74,7 +79,9 @@ export default {
 	}
 	#bad:hover{
 		background-position: -101px -100px;
-	}	#bad:active{
+	}	
+	#bad.active,
+	#bad:active{
 		background-position: -101px -200px;
 	}	
 	#ok{
@@ -82,7 +89,9 @@ export default {
 	}
 	#ok:hover{
 		background-position: -202px -100px;
-	}	#ok:active{
+	}	
+	#ok.active,
+	#ok:active{
 		background-position: -202px -200px;
 	}
 	#good{
@@ -90,7 +99,9 @@ export default {
 	}
 	#good:hover{
 		background-position: -303px -100px;
-	}	#good:active{
+	}	
+	#good.active,
+	#good:active{
 		background-position: -303px -200px;
 	}	
 	#very-good{
@@ -98,7 +109,9 @@ export default {
 	}
 	#very-good:hover{
 		background-position: -404px -100px;
-	}	#very-good:active{
+	}	
+	#very-good.active,
+	#very-good:active{
 		background-position: -404px -200px;
 	}
 </style>

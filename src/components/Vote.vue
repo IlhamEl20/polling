@@ -23,8 +23,8 @@ export default {
   components: { },
   data: function () {
   	return{
-  		emoticons:['very-bad','bad','ok','good','very-good'],isDisable: false,
-  		emoticonsClick:false
+  		emoticons:['very-bad','bad','ok','good','very-good'],
+  		emoticonsClick:''
   	}
   },
   methods:{

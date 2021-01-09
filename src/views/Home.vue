@@ -4,8 +4,9 @@
      <section class="vote">
  	<h3 class="give-your-vote">Silahkan berikan penilaian anda terhadap pelayanan kami
  	</h3>
+
  	<div class="emoticons">
- 		//komenet pote
+ 		<Vote/>
  	</div>
  </section>
 <section class="finish">
@@ -16,12 +17,12 @@
 
 <script>
 // @ is an alias to /src
-//import HelloWorld from "@/components/HelloWorld.vue";
+import Vote from "@/components/Vote.vue";
 
 export default {
   name: "Home",
   components: {
-    //HelloWorld
+  Vote
   }
 };
 </script>
@@ -34,5 +35,9 @@ export default {
 	}
 	section{
 		width: 100%;
+	}
+	.emoticons{
+		display: flex;
+		justify-content: center;
 	}
 </style>

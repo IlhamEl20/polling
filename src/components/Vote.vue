@@ -14,7 +14,7 @@
 
 <script>
 // @ is an alias to /src
-
+import moment from "moment";
 
 export default {
   name: "Home",
@@ -28,6 +28,8 @@ export default {
 
   	vote(e){
   		var voted = e.target.value;
+  		var waktu = moment().format('DD-MM-YYYY hh:mm:ss '); // January 9th 2021, 11:21:23 am
+  		console.log(waktu);
   		localStorage.setItem('vote',voted);
   	}
   }

@@ -10,9 +10,9 @@
  	</div>
  </section>
 <section class="finish">
-	<transition name="fade">
+	<transition name="fade" v-on:after-enter="Reset">
 
-	<h4 v-if="show">Terimakasih bruh</h4>
+	<h4 v-if="show">Terimakasih telah mmenilai layanan kami bruh</h4>
 </transition>
 </section>
   </div>
@@ -35,17 +35,21 @@ export default {
  methods:{
  	vote(){
  		this.show=true;
+ 	},
+ 	Reset(){
+ 		this.show=false;
+ 		this.$root.$emit('emitproccessDone')
  	}
  } 
 };
 </script>
 <style type="text/css">
-	.fade-enter-active, .fade-leave-active{
-		transition: opacity .5s;
-	}
-	.fade-enter, .fade-leave-to{
-		opacity: 0;
-	}
+	.fade-enter-active, .fade-leave-active {
+  transition: opacity .9s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 	.container{
 		display: flex;
 		flex-wrap: wrap;

@@ -55,6 +55,11 @@ export default {
   	isDisable : function(){
   		return this.emoticonsClick.length === 0? false : true;
   	}
+  },
+  mounted(){
+  	this.$root.$on('emitproccessDone',()=>{
+  		this.emoticonsClick='';
+  	});
   }
 
 };
